@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input InputAuthCode {
+  code: String!
+}
+
+type Mutation {
+  login(input: InputAuthCode!): String!
+}
+
+type Query {
+  authorizationUrlForLoginWithSlack: String!
+}
