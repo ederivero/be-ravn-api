@@ -2,7 +2,6 @@ import {
   Injectable,
   OnModuleInit,
   OnModuleDestroy,
-  NotFoundException,
   Logger,
 } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
@@ -13,10 +12,7 @@ export class PrismaService
   implements OnModuleDestroy, OnModuleInit
 {
   constructor() {
-    super({
-      // log: ['query', 'error', 'warn'],
-      rejectOnNotFound: (error) => new NotFoundException(error.message),
-    });
+    super({});
   }
 
   async onModuleInit(): Promise<void> {
