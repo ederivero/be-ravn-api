@@ -9,3 +9,56 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String  @id @default(uuid())
+  email     String  @unique
+  name      String
+  title     String?
+  phone     String?
+  avatarUrl String  @map("avatar_url")
+  country   String?
+  city      String?
+
+  auths  Auth[]
+  posts  Post[]
+  events Event[]
+
+  @@map("users")
+}
+
+model Auth {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now()) @map(name: "created_at")
+  user       User?    @relation(fields: [userId], references: [id])
+  userId     String?  @map(name: "user_id")
+  slackToken String   @map("slack_token")
+  jti        String   @unique @default(uuid())
+  aud        String?
+
+  @@map("auths")
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  userId    String
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("posts")
+}
+
+model Event {
+  id        String   @id @default(uuid())
+  title     String
+  date      DateTime
+  startHour DateTime @map("start_hour") @db.Time()
+  endHour   DateTime @map("end_hour") @db.Time()
+  ownerId   String
+
+  owner User @relation(fields: [ownerId], references: [id])
+
+  @@map("events")
+}
