@@ -4,6 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AuthModule } from './auth/auth.module';
+import { PostsModule } from './posts/posts.module';
+import { EventsModule } from './events/events.module';
 import configuration from './common/config/default.config';
 
 @Module({
@@ -21,6 +23,8 @@ import configuration from './common/config/default.config';
       fieldResolverEnhancers: ['guards', 'filters'],
     }),
     AuthModule,
+    PostsModule,
+    EventsModule,
   ],
   controllers: [],
   providers: [],
