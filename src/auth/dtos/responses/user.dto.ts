@@ -9,6 +9,9 @@ export class UserDto {
   readonly email: string;
 
   @Expose()
+  readonly userName: string;
+
+  @Expose()
   readonly name: string;
 
   @Expose()

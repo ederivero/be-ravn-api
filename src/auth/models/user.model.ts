@@ -9,6 +9,8 @@ export class UserModel {
   readonly email: string;
 
   @Field()
+  readonly userName: string;
+  @Field()
   readonly name: string;
 
   @Field()

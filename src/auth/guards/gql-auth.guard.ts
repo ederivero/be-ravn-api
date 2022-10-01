@@ -18,7 +18,9 @@ export class GqlAuthGuard extends AuthGuard('jwt') {
   handleRequest<T>(
     err: Record<string, unknown> | null,
     user: T,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     info: Error | undefined,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     context: ExecutionContextHost,
   ) {
     if (err || !user) {

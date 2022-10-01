@@ -29,10 +29,10 @@ export class PostResolver {
     @CurrentUser() user,
     @Args('input') input: PostInput,
   ): Promise<PostResponseDto> {
-    console.log(user);
     return this.postService.create(input, user.id);
   }
 
+  @UseGuards(GqlAuthGuard)
   @Query(() => [PostModel], { name: 'listPosts' })
   async listPost(): Promise<PostResponseDto[]> {
     return this.postService.list();

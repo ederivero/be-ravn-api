@@ -29,6 +29,7 @@ type EventModel {
 }
 
 input InputAuthCode {
+  admin: Boolean!
   code: String!
 }
 
@@ -50,6 +51,7 @@ type PostModel {
 }
 
 type Query {
+  authorizationUrlForLoginWithAdminSlack: String!
   authorizationUrlForLoginWithSlack: String!
   listEvents: [EventModel!]!
   listPosts: [PostModel!]!
@@ -64,4 +66,5 @@ type UserModel {
   name: String!
   phone: String
   title: String!
+  userName: String!
 }

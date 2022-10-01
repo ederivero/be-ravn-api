@@ -10,18 +10,16 @@ export class AuthResolver {
 
   @Query(() => String, { name: 'authorizationUrlForLoginWithSlack' })
   async getAuthorizationUrlForLoginWithSlack() {
-    return this.authService.getAuthorizationUrlForLoginWithSlack();
+    return this.authService.getAuthorizationUrlForLoginWithSlack(false);
+  }
+
+  @Query(() => String, { name: 'authorizationUrlForLoginWithAdminSlack' })
+  async getAuthorizationUrlForLoginWithAdminSlack() {
+    return this.authService.getAuthorizationUrlForLoginWithSlack(true);
   }
 
   @Mutation(() => AccessModel, { name: 'login' })
   async login(@Args('input') input: InputAuthCode) {
-    return this.authService.login(input.code);
+    return this.authService.login(input.code, input.admin);
   }
-
-  //   @UseGuards(GqlAuthGuard)
-  //   @Query(() => String, { name: 'profile' })
-  //   async profile(@CurrentUser() user) {
-  //     console.log(user);
-  //     return '';
-  //   }
 }
