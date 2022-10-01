@@ -7,7 +7,7 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { UserDto } from '../../auth/dtos/responses/User.dto';
+import { UserDto } from '../../auth/dtos/responses/user.dto';
 import { UserService } from '../../posts/services/user.service';
 import { CurrentUser } from '../../auth/decorators/current-user.decorator';
 import { GqlAuthGuard } from '../../auth/guards/gql-auth.guard';

@@ -7,7 +7,7 @@ import {
   Parent,
   Query,
 } from '@nestjs/graphql';
-import { UserDto } from '../../auth/dtos/responses/User.dto';
+import { UserDto } from '../../auth/dtos/responses/user.dto';
 import { CurrentUser } from '../../auth/decorators/current-user.decorator';
 import { GqlAuthGuard } from '../../auth/guards/gql-auth.guard';
 import { PostInput } from '../dtos/inputs/post.input';

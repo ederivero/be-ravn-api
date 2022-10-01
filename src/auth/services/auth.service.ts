@@ -4,7 +4,7 @@ import { Issuer } from 'openid-client';
 import { WebClient } from '@slack/web-api';
 import { PrismaService } from '../../common/services/prisma.service';
 import { plainToClass } from 'class-transformer';
-import { UserDto } from '../dtos/responses/User.dto';
+import { UserDto } from '../dtos/responses/user.dto';
 import { decode } from 'jsonwebtoken';
 import { JwtService } from '@nestjs/jwt';
 import { AccessUserDto } from '../dtos/responses/access.dto';

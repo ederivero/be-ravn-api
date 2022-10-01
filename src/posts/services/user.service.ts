@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
-import { UserDto } from '../../auth/dtos/responses/User.dto';
+import { UserDto } from '../../auth/dtos/responses/user.dto';
 import { PrismaService } from '../../common/services/prisma.service';
 
 @Injectable()
